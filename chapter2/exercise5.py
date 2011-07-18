@@ -4,8 +4,11 @@ import sys
 from opencv import CV_GAUSSIAN_5x5, cvCreateImage, cvSize, cvPyrDown, cvResize
 from opencv.highgui import cvCreateCameraCapture, cvQueryFrame, cvShowImage, cvNamedWindow, CV_WINDOW_AUTOSIZE, cvWaitKey, cvCreateTrackbar, cvGetTrackbarPos
 
-def dummy(tmp):
-    pass
+slider_pos = 0
+
+def update_slider(pos):
+  global slider_pos
+  slider_pos = pos
 
 def do_pyrdown(in_img, filter=CV_GAUSSIAN_5x5):
   # verify image is halvable
@@ -16,6 +19,8 @@ def do_pyrdown(in_img, filter=CV_GAUSSIAN_5x5):
   return out_img
 
 def do_capture():
+  global slider_pos
+
   # Set up the camera capture
   capture = cvCreateCameraCapture(0)
 
@@ -24,7 +29,7 @@ def do_capture():
 
   # Set up the trackbar
   slider_pos = 0
-  cvCreateTrackbar("Reduction", "Exercise5", slider_pos, 4, dummy)
+  cvCreateTrackbar("Reduction", "Exercise5", slider_pos, 4, update_slider)
 
   while True:
     # Capture a frame
@@ -37,7 +42,6 @@ def do_capture():
     cvResize(frame, out)
 
     # Reduce the image by pyramid depending on the slider position
-    slider_pos = cvGetTrackbarPos("Reduction", "Exercise5")
     if slider_pos != 0:
       for i in range(slider_pos):
         out = do_pyrdown(out)
