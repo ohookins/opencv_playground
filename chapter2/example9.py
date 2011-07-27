@@ -12,7 +12,7 @@ def showcam(filename=None):
   while True:
     frame = highgui.cvQueryFrame(capture)
     if not frame:
-      break
+      next
     highgui.cvShowImage("Example9", frame)
 
     c = highgui.cvWaitKey(30)
