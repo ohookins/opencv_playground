@@ -1,26 +1,29 @@
 #!/usr/bin/python
 
 import sys
-from opencv import highgui
+from cv2 import cv
 
 def showcam(filename=None):
   if filename != None:
-    capture = highgui.cvCreateFileCapture(filename)
+    capture = cv.CreateFileCapture(filename)
   else:
-    capture = highgui.cvCreateCameraCapture(-1)
+    capture = cv.CreateCameraCapture(-1)
 
   while True:
-    frame = highgui.cvQueryFrame(capture)
+    frame = cv.QueryFrame(capture)
     if not frame:
-      next
-    highgui.cvShowImage("Example9", frame)
+      if not filename:
+        next
+      else:
+        break
+    cv.ShowImage("Example9", frame)
 
-    c = highgui.cvWaitKey(30)
-    if c == '\x1b': # escape key
+    c = cv.WaitKey(30)
+    if c == 27: # escape key
       break
 
-  highgui.cvReleaseCapture(capture)
-  highgui.cvDestroyWindow("Example9")
+  del(capture)
+  cv.DestroyWindow("Example9")
 
 if __name__ == "__main__":
   if len(sys.argv) == 2:

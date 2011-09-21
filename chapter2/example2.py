@@ -23,6 +23,7 @@ def showavi(filename):
   cv.DestroyWindow("Example2")
 
 if __name__ == "__main__":
+  # check file is readable, as cv.CreateFileCapture does not
   try:
     f = open(sys.argv[1], 'r')
   except:

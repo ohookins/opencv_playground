@@ -26,12 +26,5 @@ def example2_4(image):
   cv.DestroyWindow("Example4-out")
 
 if __name__ == "__main__":
-  try:
-    f = open(sys.argv[1], 'r')
-  except IOError:
-    raise
-  else:
-    f.close()
-
   example2_4(cv.LoadImage(sys.argv[1]))
   sys.exit(0)
