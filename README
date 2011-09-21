@@ -4,3 +4,7 @@ Learning OpenCV
 by Gary Bradski, Adrian Kaehler
 ISBN: 978-0-596-51613-0
 http://techbus.safaribooksonline.com/book/programming/opencv/9780596516130
+
+Software used:
+ - Python 2.7.1
+ - OpenCV 2.3.1

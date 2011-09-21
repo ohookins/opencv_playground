@@ -1,37 +1,45 @@
 #!/usr/bin/python
 
 import sys
-import opencv
-from opencv.highgui import *
+from cv2 import cv
 
-def do_pyrdown(in_img, filter=opencv.CV_GAUSSIAN_5x5):
+def do_pyrdown(in_img, filter=cv.CV_GAUSSIAN_5x5):
   # verify image is halvable
   assert(in_img.width % 2 == 0 and in_img.height % 2 == 0)
 
-  out_img = opencv.cvCreateImage(opencv.cvSize(in_img.width/2, in_img.height/2), in_img.depth, in_img.nChannels)
-  opencv.cvPyrDown(in_img, out_img, filter)
+  # cvGetSize is now just a tuple
+  out_img = cv.CreateImage((in_img.width/2, in_img.height/2), in_img.depth, in_img.nChannels)
+  cv.PyrDown(in_img, out_img, filter)
   return out_img
 
 def example2_4(image):
-  cvNamedWindow("Example5-in")
-  cvNamedWindow("Example5-out")
+  cv.NamedWindow("Example5-in")
+  cv.NamedWindow("Example5-out")
 
   # show the image
-  cvShowImage("Example5-in", image)
+  cv.ShowImage("Example5-in", image)
 
   # transform the input
   out = do_pyrdown(image)
-  
-  # show the reduced image
-  cvShowImage("Example5-out", out)
 
-  opencv.cvReleaseImage(out)
+  # show the reduced image
+  cv.ShowImage("Example5-out", out)
+
+  #cv.ReleaseImage(out)
+  del(out)
 
   # wait for key then cleanup
-  cvWaitKey(0)
-  cvDestroyWindow("Example5-in")
-  cvDestroyWindow("Example5-out")
+  cv.WaitKey(0)
+  cv.DestroyWindow("Example5-in")
+  cv.DestroyWindow("Example5-out")
 
 if __name__ == "__main__":
-  example2_4(cvLoadImage(sys.argv[1]))
+  try:
+    f = open(sys.argv[1], 'r')
+  except IOError:
+    raise
+  else:
+    f.close()
+
+  example2_4(cv.LoadImage(sys.argv[1]))
   sys.exit(0)

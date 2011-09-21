@@ -1,25 +1,34 @@
 #!/usr/bin/python
 
 import sys
-from opencv import highgui
+from cv2 import cv
 
 def showavi(filename):
-  highgui.cvNamedWindow("Example2", highgui.CV_WINDOW_AUTOSIZE)
-  capture = highgui.cvCreateFileCapture(filename)
+  cv.NamedWindow("Example2", cv.CV_WINDOW_AUTOSIZE)
+  capture = cv.CreateFileCapture(filename)
 
   while True:
-    frame = highgui.cvQueryFrame(capture)
+    frame = cv.QueryFrame(capture)
     if not frame:
       break
-    highgui.cvShowImage("Example2", frame)
+    cv.ShowImage("Example2", frame)
 
-    c = highgui.cvWaitKey(100)
-    if c == '\x1b': # escape key
+    c = cv.WaitKey(100)
+    if c == 27: # escape key
       break
 
-  highgui.cvReleaseCapture(capture)
-  highgui.cvDestroyWindow("Example2")
+  #cv.ReleaseCapture(capture)
+  # ReleaseCapture is no longer used
+  del(capture)
+  cv.DestroyWindow("Example2")
 
 if __name__ == "__main__":
+  try:
+    f = open(sys.argv[1], 'r')
+  except:
+    raise
+  else:
+    f.close()
+
   showavi(sys.argv[1])
   sys.exit(0)

@@ -1,14 +1,14 @@
 #!/usr/bin/python
 
 import sys
-from opencv import highgui
+from cv2 import cv
 
 def show(filename):
-  img =  highgui.cvLoadImage(filename)
-  highgui.cvNamedWindow("Example1", highgui.CV_WINDOW_AUTOSIZE)
-  highgui.cvShowImage("Example1", img)
-  highgui.cvWaitKey(0)
-  highgui.cvDestroyWindow("Example1")  
+  img =  cv.LoadImage(filename)
+  cv.NamedWindow("Example1", cv.CV_WINDOW_AUTOSIZE)
+  cv.ShowImage("Example1", img)
+  cv.WaitKey(0)
+  cv.DestroyWindow("Example1")
 
 if __name__ == "__main__":
   show(sys.argv[1])
