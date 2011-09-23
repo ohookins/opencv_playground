@@ -41,10 +41,13 @@ def showavi(filename):
   cv.DestroyWindow("Example3")
 
 if __name__ == "__main__":
-  # check file is readable, as cv.CreateFileCapture does not
+  # check file is readable
   try:
     f = open(sys.argv[1], 'r')
-  except:
+  except IndexError:
+    print >> sys.stderr, "You must supply a filename."
+    sys.exit(1)
+  except IOError:
     raise
   else:
     f.close()

@@ -36,5 +36,15 @@ def convert_video(infile, outfile):
 
 if __name__ == "__main__":
   if len(sys.argv) == 3:
+    # check files are readable
+    try:
+      f1 = open(sys.argv[1], 'r')
+      f2 = open(sys.argv[2], 'r')
+    except IOError:
+     raise
+    else:
+      f1.close()
+      f2.close()
+
     convert_video(sys.argv[1], sys.argv[2])
   sys.exit(0)

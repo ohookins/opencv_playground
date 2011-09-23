@@ -27,6 +27,14 @@ def showcam(filename=None):
 
 if __name__ == "__main__":
   if len(sys.argv) == 2:
+    # check file is readable
+    try:
+      f = open(sys.argv[1], 'r')
+    except IOError:
+      raise
+    else:
+      f.close()
+
     showcam(sys.argv[1])
   else:
     showcam()

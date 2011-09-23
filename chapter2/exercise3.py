@@ -30,9 +30,16 @@ def do_capture(filename):
   del(capture)
 
 if __name__ == "__main__":
-  if len(sys.argv) != 2:
-    print >> sys.stderr, "Please supply a filename."
+  # check file is readable
+  try:
+    f = open(sys.argv[1], 'r')
+  except IndexError:
+    print >> sys.stderr, "You must supply a filename."
     sys.exit(1)
+  except IOError:
+    raise
+  else:
+    f.close()
 
   do_capture(sys.argv[1])
   sys.exit(0)

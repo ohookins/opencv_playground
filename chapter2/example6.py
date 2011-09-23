@@ -34,5 +34,16 @@ def get_images(image):
   cv.DestroyWindow("Example6-out")
 
 if __name__ == "__main__":
+  # check file is readable
+  try:
+    f = open(sys.argv[1], 'r')
+  except IndexError:
+    print >> sys.stderr, "You must supply a filename."
+    sys.exit(1)
+  except IOError:
+    raise
+  else:
+    f.close()
+
   get_images(cv.LoadImage(sys.argv[1], cv.CV_LOAD_IMAGE_GRAYSCALE))
   sys.exit(0)
