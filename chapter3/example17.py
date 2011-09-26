@@ -1,11 +1,8 @@
 #!/usr/bin/python
 
-from opencv import cv
+import cv2
 
 if __name__ == "__main__":
-  print """
-  The FileStorage routines do not work at all in python opencv, so don't bother.
-
-  You also cannot use marshal or pickle to store SwigPyObject objects, so there
-  is no easy way of storing the native data types.
-  """
+  fs = cv2.FileStorage('cfg.xml', cv2.FILE_STORAGE_WRITE)
+  # the python file storage interface is more or less useless
+  fs.release()
