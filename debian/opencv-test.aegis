@@ -1,0 +1,24 @@
+<aegis>
+   <request>
+      <credential name="GRP::video" />
+      <for path="/usr/share/opencv-test/chapter2/exercise3.py" />
+      <for path="/usr/share/opencv-test/chapter2/exercise5.py" />
+      <for path="/usr/share/opencv-test/chapter2/example6.py" />
+      <for path="/usr/share/opencv-test/chapter2/example9.py" />
+      <for path="/usr/share/opencv-test/chapter2/example3.py" />
+      <for path="/usr/share/opencv-test/chapter2/example10.py" />
+      <for path="/usr/share/opencv-test/chapter2/example2.py" />
+      <for path="/usr/share/opencv-test/chapter2/example7.py" />
+      <for path="/usr/share/opencv-test/chapter2/example4.py" />
+      <for path="/usr/share/opencv-test/chapter2/example8.py" />
+      <for path="/usr/share/opencv-test/chapter2/example5.py" />
+      <for path="/usr/share/opencv-test/chapter2/exercise4.py" />
+      <for path="/usr/share/opencv-test/chapter2/example1.py" />
+      <for path="/usr/share/opencv-test/chapter2/example3a.py" />
+      <for path="/usr/share/opencv-test/chapter3/example17.py" />
+      <for path="/usr/share/opencv-test/chapter3/example20.py" />
+      <for path="/usr/share/opencv-test/chapter3/example15.py" />
+      <for path="/usr/share/opencv-test/chapter3/example14.py" />
+      <for path="/usr/share/opencv-test/chapter3/example12.py" />
+   </request>
+</aegis>

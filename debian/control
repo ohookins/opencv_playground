@@ -1,0 +1,19 @@
+Source: opencv-test
+Section: unknown
+Priority: extra
+Maintainer: Oliver Hookins <ohookins@gmail.com>
+Build-Depends: debhelper (>= 7.0.50~)
+Standards-Version: 3.9.1
+Homepage: https://github.com/ohookins/opencv-test
+Vcs-Git: git://github.com/ohookins/opencv-test.git
+
+Package: opencv-test
+Architecture: all
+Depends: ${misc:Depends}
+Aegis-Manifest: included
+Description: A collection of OpenCV for Python test programs.
+ Examples/exercises from:
+ Learning OpenCV
+ by Gary Bradski, Adrian Kaehler
+ ISBN: 978-0-596-51613-0
+ http://techbus.safaribooksonline.com/book/programming/opencv/9780596516130
