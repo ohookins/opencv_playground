@@ -8,3 +8,8 @@ http://techbus.safaribooksonline.com/book/programming/opencv/9780596516130
 Software used:
  - Python 2.7.1
  - OpenCV 2.3.1
+
+Some exercises and examples haven't been attempted. For the most part this is
+due to me just being lazy, but in some cases they just don't make sense for
+Python or the C++ code doesn't translate to Python (missing functionality in
+the libraries, or unnecessary low-level manipulation such as with pointers).
