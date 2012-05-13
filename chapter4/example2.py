@@ -36,7 +36,7 @@ class Example2(object):
     Show the use of sliders as two-position switches.
     """
     windowname = "Demo Window"
-    cv.NamedWindow(windowname, 1)
+    cv.NamedWindow(windowname, cv.CV_WINDOW_AUTOSIZE)
 
     # Create the trackbar
     cv.CreateTrackbar("Switch", windowname, self.switch_value, 1, self.switch_callback)
